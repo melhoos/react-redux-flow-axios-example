@@ -5,6 +5,7 @@ import logo from './assets/logo.svg';
 import './styles/App.css';
 import Counter from './components/counter';
 import PostReqButton from './components/postReqButton';
+import ListNames from './components/listNames';
 import store from './store/store';
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
             </p>
             <Counter/>
             <PostReqButton/>
+            <ListNames/>
           </header>
         </div>
       </Provider>

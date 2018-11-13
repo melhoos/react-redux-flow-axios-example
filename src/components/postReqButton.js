@@ -4,19 +4,37 @@ import {connect} from 'react-redux';
 import {sendPostRequest} from '../actions/sendPostRequst';
 
 type Props = {
-    sendPostRequest(): void
+    sendPostRequest(text: string): void
 };
-class PostReqButton extends Component<Props> {
+type State = {
+    textValue: string
+};
+
+class TextInput extends Component<Props, State> {
+    constructor() {
+        super();
+        this.state = { // create local state for this component, because it dose not effect other components
+            textValue: ''
+        }
+    }
     
-    _sendPostRequst() {
-        this.props.sendPostRequest();
+    _sendPostRequst(text: string) {
+        this.props.sendPostRequest(text);
+    }
+
+    _onChangeTextInput(event: any) {
+        this.setState({
+            textValue: event.target.value
+        });
     }
 
     render() {
+        const {textValue} = this.state;
         return (
-        <div>
-            <button className="App-button" onClick={() => this._sendPostRequst()}>Send PostRequest!</button>
-        </div>
+            <div>
+                <input className="App-inputField" type="text" placeholder="Type a name" value={textValue} onChange={(event) => this._onChangeTextInput(event)}></input>
+                <button className="App-button" onClick={() => this._sendPostRequst(textValue)}>Send!</button>
+            </div>
         );
     }
 }
@@ -31,4 +49,4 @@ const mapDispatchToProps = {
     sendPostRequest
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostReqButton);
+export default connect(mapStateToProps, mapDispatchToProps)(TextInput);
