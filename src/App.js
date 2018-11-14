@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import logo from './assets/logo.svg';
 import './styles/App.css';
 import Counter from './components/counter';
-import PostReqButton from './components/postReqButton';
+import AddName from './components/addName';
 import ListNames from './components/listNames';
 import store from './store/store';
 
@@ -19,7 +19,7 @@ class App extends Component {
               Edit <code>src/App.js</code> and save to reload.
             </p>
             <Counter/>
-            <PostReqButton/>
+            <AddName/>
             <ListNames/>
           </header>
         </div>

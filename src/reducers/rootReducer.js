@@ -1,12 +1,12 @@
 //@ flow
 import {combineReducers} from 'redux';
 import {countReducer} from './countReducer.js';
-import {sendPostRequestReducer} from './sendPostRequestReducer';
+import {addNameReducer} from './addNameReducer';
 import {getNamesReducer} from './getNamesReducer';
 
 const rootReducer = combineReducers({ 
     countReducer,
-    sendPostRequestReducer,
+    addNameReducer,
     getNamesReducer
 })
 

@@ -1,13 +1,13 @@
 //@ flow
-import {SEND_POST_REQUEST, SEND_POST_SUCCESS, SEND_POST_ERROR} from '../constants/actionTypes';
+import {SEND_POST, SEND_POST_SUCCESS, SEND_POST_ERROR} from '../constants/actionTypes';
 
 const initialState = {
     loading: false
 }
 
-export function sendPostRequestReducer( state = initialState, action) {
+export function addNameReducer( state = initialState, action) {
     switch (action.type) {
-        case SEND_POST_REQUEST: 
+        case SEND_POST: 
             return {...state, loading: true}
         case SEND_POST_SUCCESS: 
             return {...state, loading: false}

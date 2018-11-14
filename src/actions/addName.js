@@ -1,18 +1,18 @@
 //@ flow
-import {SEND_POST_REQUEST} from '../constants/actionTypes';
+import {SEND_POST} from '../constants/actionTypes';
 
-export function sendPostRequest(textContent: string) {
+export function addName(name: string) {
     return {
-        type: SEND_POST_REQUEST,
+        type: SEND_POST,
         payload: {
             request: {
-                url: '/ekorn',
+                url: '/addUser',
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
                 },
                 data: {
-                    text: textContent
+                    Name: name
                 }
             }
         }
