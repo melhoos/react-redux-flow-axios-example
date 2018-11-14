@@ -43,15 +43,9 @@ class AddName extends Component<Props, State> {
     }
 }
 
-const mapStateToProps = state => { // map the stored state to props
-    return {
-
-    };
-};
-
 const mapDispatchToProps = { 
     addName,
     getNames
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddName);
+export default connect(null, mapDispatchToProps)(AddName);
