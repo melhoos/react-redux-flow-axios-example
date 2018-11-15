@@ -26,15 +26,3 @@
     transform: rotate(360deg);
   }
 }
-
-.App-button {
-  border: 0;
-  padding: 10px;
-  margin: 0px 10px;
-}
-
-.App-inputField {
-  border: 0;
-  padding: 10px;
-  margin: 0px 10px;
-}

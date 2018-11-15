@@ -1,0 +1,29 @@
+.addName {
+    margin: 20px 0px 5px;
+}
+
+.listNamesScroll {
+    overflow-y: scroll;
+    height: 200px;
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.typeNameInput {
+    border: 0;
+    padding: 14px;
+    width: 135px;
+}
+
+.addNameButton {
+    border: 0;
+    padding: 14px;
+}
+
+.addNameButton:focus, .typeNameInput:focus {
+    outline: 0;
+}
+
+.addNameButton:hover {
+    cursor: pointer;
+}

@@ -2,6 +2,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getNames} from '../actions/getNames';
+import '../styles/listNames.css';
+
 
 type Props = {
     getNames(): void,
@@ -17,7 +19,7 @@ class ListNames extends Component<Props> {
     render() {
         const {names} = this.props;
         return (
-            <ul>
+            <ul className="listNamesScroll">
                 {names.map( (name: any) => (
                               <li key={name.id}>
                                   {name.name}

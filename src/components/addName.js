@@ -1,8 +1,11 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {addName} from '../actions/addName';
 import {getNames} from '../actions/getNames';
+import '../styles/listNames.css';
+
 
 type Props = {
     addName(text: string): void,
@@ -35,9 +38,11 @@ class AddName extends Component<Props, State> {
     render() {
         const {name} = this.state;
         return (
-            <div>
-                <input className="App-inputField" type="text" placeholder="Type a name" value={name} onChange={(event) => this._onChangeTextInput(event)}></input>
-                <button className="App-button" onClick={() => this._sendPostRequst(name)}>Send!</button>
+            <div className="addName">
+                <input className="typeNameInput" type="text" placeholder="Type a name" value={name} onChange={(event) => this._onChangeTextInput(event)}></input>
+                <button className="addNameButton" onClick={() => this._sendPostRequst(name)}> 
+                    <FontAwesomeIcon icon="user-plus" />
+                </button>
             </div>
         );
     }

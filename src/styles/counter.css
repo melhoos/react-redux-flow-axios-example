@@ -4,5 +4,26 @@
 }
 
 .counter-value {
-    margin: 0px 10px 10px 10px;
+    margin: 0px 0px 10px;
+}
+
+.counter-button {
+    border: 0;
+    padding: 14px;
+}
+
+.counter-button:focus {
+    outline: 0;
+}
+
+.counter-button:hover {
+    cursor: pointer;
+}
+
+.minus {
+    margin-right: 10px;
+}
+
+.plus {
+    margin-left: 10px;
 }
