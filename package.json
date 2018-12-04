@@ -6,6 +6,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
     "@fortawesome/react-fontawesome": "^0.1.3",
+    "@material-ui/core": "^3.6.1",
+    "@material-ui/lab": "^3.0.0-alpha.24",
     "axios": "^0.18.0",
     "flow-bin": "^0.86.0",
     "i": "^0.3.6",

@@ -1,19 +1,19 @@
 //@ flow
-import {GET_NAMES, GET_NAMES_SUCCESS, GET_NAMES_ERROR} from '../constants/actionTypes';
+import {GET_QUESTIONS, GET_QUESTIONS_SUCCESS, GET_QUESTIONS_ERROR} from '../constants/actionTypes';
 
 const initialState = {
     loading: false,
     data: [] 
 }
 
-export function getNamesReducer( state = initialState, action) {
+export function getQuestionsReducer( state = initialState, action) {
     switch (action.type) {
-        case GET_NAMES: 
+        case GET_QUESTIONS: 
             return {...state, loading: true}
-        case GET_NAMES_SUCCESS: 
+        case GET_QUESTIONS_SUCCESS: 
             return {...state, loading: false, data: action.payload.data}
-        case GET_NAMES_ERROR: 
-            console.log("GET_NAMES_ERROR");
+        case GET_QUESTIONS_ERROR: 
+            console.log("GET_QUESTIONS_ERROR");
             return {...state, loading: false, error: 'Error while getting'}
         default: 
             return state;

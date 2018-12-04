@@ -10,7 +10,7 @@ type State = {
 
 }
 
-class Quiz extends Component<Props, State> {
+class TemplateComponent extends Component<Props, State> {
 
     componentDidMount() {
     }
@@ -31,4 +31,4 @@ const mapDispatchToProps = {
 
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Quiz);
+export default connect(mapStateToProps, mapDispatchToProps)(TemplateComponent);

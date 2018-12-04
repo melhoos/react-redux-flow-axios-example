@@ -5,7 +5,7 @@ import axiosMiddleware from 'redux-axios-middleware';
 import rootReducer from "../reducers/rootReducer.js";
 
 const client = axios.create({
-    baseURL: 'http://d864afba.ngrok.io/api',
+    baseURL: 'http://localhost:53909/api',
     responseType: 'json'
 });
 

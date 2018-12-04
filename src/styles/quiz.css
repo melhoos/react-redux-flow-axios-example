@@ -1,0 +1,33 @@
+.startButton {
+
+    text-decoration: none;
+}
+
+.navButton {
+  padding: 20px;
+}
+
+.questionComp {
+  margin: 50px;
+}
+
+.questionTitle {
+  font-size: 2em;
+  padding-bottom: 25px;
+}
+
+.quiz-loader {
+    animation: logo-spin infinite 2s linear;
+    font-size: 4em;
+}
+
+
+@keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
