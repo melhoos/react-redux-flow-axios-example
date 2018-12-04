@@ -21,7 +21,7 @@ class StartQuiz extends Component<Props, State> {
     render() {
         return (
             <div>
-                <Link to="/quizzles" className="startButton">
+                <Link to="/quizzles" className="startLink">
                      <Button size="large" variant="contained" color="primary"> Start </Button>
                 </Link>
             </div>

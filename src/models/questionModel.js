@@ -3,7 +3,7 @@ import AnswerAlternativeModel from './answerAlternativeModel';
 import QuestionTypeModel from './questionTypeModel';
 
 export type QuestionModel = {
-    id: int,
+    id: number,
     questionText: string,
     createdAt: obj,
     createdBy: obj,

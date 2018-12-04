@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import AnswerAlternativeModel from '../models/answerAlternativeModel';
+import type {AnswerAlternativeModel} from '../models/answerAlternativeModel';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -39,7 +39,7 @@ class RadioAlternative extends Component<Props, State> {
                     value={radioValue}
                 >
                     {
-                        answerAlternatives.map( (answerAlternative: AnswerAlternativeModel, index: int) => (
+                        answerAlternatives.map( (answerAlternative: AnswerAlternativeModel, index: number) => (
                             <FormControlLabel 
                                 key={index} 
                                 value={index.toString()}

@@ -14,7 +14,7 @@ export function getQuestionsReducer( state = initialState, action) {
             return {...state, loading: false, data: action.payload.data}
         case GET_QUESTIONS_ERROR: 
             console.log("GET_QUESTIONS_ERROR");
-            return {...state, loading: false, error: 'Error while getting'}
+            return {...state, loading: false, error: "error while getting question"}
         default: 
             return state;
     }

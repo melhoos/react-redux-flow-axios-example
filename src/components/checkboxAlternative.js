@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import AnswerAlternativeModel from '../models/answerAlternativeModel';
+import type {AnswerAlternativeModel} from '../models/answerAlternativeModel';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -19,7 +19,7 @@ class CheckboxAlternative extends Component<Props> {
             <FormControl>
                 <FormGroup>
                     {
-                        answerAlternatives.map( (answerAlternative: AnswerAlternativeModel, index: int) => (
+                        answerAlternatives.map( (answerAlternative: AnswerAlternativeModel, index: number) => (
                             <FormControlLabel 
                                 key={index} 
                                 label={answerAlternative.name}

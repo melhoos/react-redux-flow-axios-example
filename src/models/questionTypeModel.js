@@ -1,5 +1,5 @@
 // @flow
 export type QuestionTypeModel = {
-    id: int,
+    id: number,
     name: string
 };

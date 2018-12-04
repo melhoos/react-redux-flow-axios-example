@@ -6,12 +6,13 @@ import './styles/App.css';
 //import FrontPage from './components/frontPage';
 import Quiz from './components/quiz';
 import StartQuiz from './components/startQuiz';
+import NotFound from './components/notFound';
 import store from './store/store';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { faUserPlus, faPlus, faMinus, faTrashAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus, faPlus, faMinus, faTrashAlt, faSpinner, faSadTear, faHandPointLeft } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faUserPlus, faPlus, faMinus, faTrashAlt, faSpinner)
+library.add(faUserPlus, faPlus, faMinus, faTrashAlt, faSpinner, faSadTear, faHandPointLeft)
 
 class App extends Component {
   // <img src={logo} className="App-logo" alt="logo" />
@@ -22,8 +23,9 @@ class App extends Component {
           <header className="App-header">
             <Router>
               <div>
-                <Route path="/home" component={StartQuiz}/>
+                <Route path="/" exact component={StartQuiz}/>
                 <Route path="/quizzles" component={Quiz}/>
+                <Route path="/notFound" component={NotFound}/>
               </div>
             </Router>
           </header>

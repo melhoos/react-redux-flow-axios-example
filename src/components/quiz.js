@@ -3,34 +3,55 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getQuestions} from '../actions/getQuestions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Redirect } from 'react-router';
 import Button from '@material-ui/core/Button';
 import Question from './question';
+import NotFound from './notFound'
+import type {QuestionModel} from '../models/questionModel';
 
 type State = {
-    curretQuestionIndex: int
+    curretQuestionIndex: number,
+    error: bool
 }
 
 type Props = {
     getQuestions(): void,
-    questions: [obj],
-    loading: bool
+    questions: [QuestionModel],
+    loading: bool,
 };
 
 class Quiz extends Component<Props, State> {
     constructor(props) {
         super(props);
         this.state = {
-            curretQuestionIndex: 0
+            curretQuestionIndex: 0,
+            error: false
         }
     }
 
     componentDidMount() {
-        this.props.getQuestions();
+        this.props.getQuestions().then((response) => {
+            this.setState({
+                error: response.error.status === 0
+            })
+          })
     }
 
-    renderloading () {
+    renderLoading () {
         return (
             <FontAwesomeIcon className="quiz-loader" icon="spinner" />
+        )
+    }
+
+    renderError () {
+        return (
+            <Redirect to="/notFound" /> 
+        )
+    }
+
+    renderError() {
+        return (
+           <NotFound/>
         )
     }
 
@@ -62,7 +83,7 @@ class Quiz extends Component<Props, State> {
         const {curretQuestionIndex} = this.state;
         return (
             <div>
-                { questions.map( (question: obj, index: int) => {
+                { questions.map( (question: QuestionModel, index: number) => {
                     if (index === curretQuestionIndex) {
                         return (
                             <div key={index} >
@@ -88,11 +109,16 @@ class Quiz extends Component<Props, State> {
     }
 
     render() {
-        const {questions, loading} = this.props;
+        const {loading} = this.props;
+        const {error} = this.state;
         return (
             <div>
                 { loading ? 
-                    this.renderloading() : this.renderQuestion() }
+                    this.renderLoading() :
+                    error ? 
+                    this.renderError() :
+                    this.renderQuestion() 
+                }
             </div>
         );
     }
@@ -101,7 +127,7 @@ class Quiz extends Component<Props, State> {
 const mapStateToProps = state => { 
     return {
         questions: state.getQuestionsReducer.data,
-        loading: state.getQuestionsReducer.loading
+        loading: state.getQuestionsReducer.loading,
     };
 };
 

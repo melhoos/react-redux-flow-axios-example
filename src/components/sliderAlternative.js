@@ -1,11 +1,11 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import AnswerAlternativeModel from '../models/answerAlternativeModel';
+import type {AnswerAlternativeModel} from '../models/answerAlternativeModel';
 import Slider from '@material-ui/lab/Slider';
 
 type State = {
-    sliderValue: int,
+    sliderValue: number,
 }
 
 type Props = {

@@ -1,9 +1,10 @@
 // @flow
 export type AnswerAlternativeModel = {
-    id: int,
+    id: number,
     answerRage: obj,
     createdAt: obj,
     createdBy: obj,
+    answerRange: obj,
     freeTextAllowed: bool,
     name: string
 };
