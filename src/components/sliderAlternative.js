@@ -39,13 +39,15 @@ class SliderAlternative extends Component<Props, State> {
         return (
             <div>
                 { showSlider ? (
-                        <Slider
-                            value={sliderValue}
-                            min={rangeLow}
-                            max={rangeHigh}
-                            step={1}
-                            onChange={this.handleSliderChange}
-                        />
+                        <div>
+                            <Slider
+                                value={sliderValue}
+                                min={rangeLow}
+                                max={rangeHigh}
+                                step={1}
+                                onChange={this.handleSliderChange}
+                            />
+                        </div>
                     ) : (<div> Error! QuestionType = Slider, men ingen range funnet! </div>)
 
                 }
