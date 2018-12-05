@@ -17,7 +17,7 @@ type State = {
 type Props = {
     getQuestions(): void,
     questions: [QuestionModel],
-    loading: bool,
+    loading: bool
 };
 
 class Quiz extends Component<Props, State> {
@@ -32,7 +32,7 @@ class Quiz extends Component<Props, State> {
     componentDidMount() {
         this.props.getQuestions().then((response) => {
             this.setState({
-                error: response.error.status === 0
+                error: response.error != undefined
             })
           })
     }
