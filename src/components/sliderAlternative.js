@@ -39,7 +39,7 @@ class SliderAlternative extends Component<Props, State> {
         return (
             <div>
                 { showSlider ? (
-                        <div>
+                        <div className="sliderContent">
                             <div className="sliderValues">
                                 <span className="sliderLow"> {rangeLow} </span>
                                 <span> {sliderValue} </span>

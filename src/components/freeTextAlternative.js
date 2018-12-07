@@ -21,9 +21,9 @@ class FreeTextAlternative extends Component<Props> {
         return (
         <div className="textFieldInput">
             <TextField
-                fullWidth
                 margin="normal"
                 label={labelName}
+                fullWidth
             />
         </div>)
     }

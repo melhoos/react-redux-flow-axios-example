@@ -44,6 +44,14 @@
   font-size: 0.5em;
 }
 
+.sliderContent {
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 500px;
+  width: 50%;
+}
+
 .sliderValues {
   padding-bottom: 15px;
 }
@@ -54,7 +62,7 @@
 }
 
 .textFieldInput {
-  width: 300px;
+  width: 500px;
 }
 
 .quiz-loader {
