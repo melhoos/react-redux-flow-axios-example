@@ -40,6 +40,11 @@ class SliderAlternative extends Component<Props, State> {
             <div>
                 { showSlider ? (
                         <div>
+                            <div className="sliderValues">
+                                <span className="sliderLow"> {rangeLow} </span>
+                                <span> {sliderValue} </span>
+                                <span className="sliderHigh"> {rangeHigh} </span>
+                            </div>
                             <Slider
                                 value={sliderValue}
                                 min={rangeLow}
@@ -49,13 +54,11 @@ class SliderAlternative extends Component<Props, State> {
                             />
                         </div>
                     ) : (<div> Error! QuestionType = Slider, men ingen range funnet! </div>)
-
                 }
             </div>
         )
     }
 
-  
     render() {
         return (
             <div>

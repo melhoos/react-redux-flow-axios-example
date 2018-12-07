@@ -6,6 +6,7 @@ import type {AnswerAlternativeModel} from '../models/answerAlternativeModel';
 import {QuestionTypeEnum} from '../constants/questionTypeEnum';
 import SliderAlternative from './sliderAlternative';
 import RadioAlternative from './radioAlternative';
+import FreeTextAlternative from './freeTextAlternative';
 import CheckboxAlternative from './checkboxAlternative';
 
 type Props = {
@@ -17,13 +18,15 @@ class AnswerAlternatives extends Component<Props> {
 
     renderCorrectAnswerAlternative () {
         const {questionType, answerAlternatives} = this.props;
-        switch(questionType.name) {
+        switch(questionType.id) {
             case QuestionTypeEnum.RADIO:
                 return (<RadioAlternative answerAlternatives={answerAlternatives}/> )
             case QuestionTypeEnum.CHECKBOX:
                 return (<CheckboxAlternative answerAlternatives={answerAlternatives}/>)
             case QuestionTypeEnum.SLIDER:
                 return (<SliderAlternative answerAlternatives={answerAlternatives}/>)
+            case QuestionTypeEnum.FREETEXT: 
+                return (<FreeTextAlternative answerAlternatives={answerAlternatives}/>)
             default: 
                 break;
         }

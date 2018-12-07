@@ -19,6 +19,7 @@
 .errorSadFaceIcon {
   animation: logo-spin infinite 4s linear;
 }
+
 .goBackLink {
   text-decoration: none;
   font-size: 0.75em;
@@ -36,6 +37,24 @@
 .questionTitle {
   font-size: 2em;
   padding-bottom: 25px;
+}
+
+.sliderLow {
+  float: left;
+  font-size: 0.5em;
+}
+
+.sliderValues {
+  padding-bottom: 15px;
+}
+
+.sliderHigh {
+  float: right;
+  font-size: 0.5em;
+}
+
+.textFieldInput {
+  width: 300px;
 }
 
 .quiz-loader {

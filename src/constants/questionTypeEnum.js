@@ -1,7 +1,8 @@
 // @flow
 export const QuestionTypeEnum = {
-    RADIO: 'Radio',
-    CHECKBOX: 'Check',
-    SLIDER: 'Slider'
+    RADIO: 1,
+    CHECKBOX: 2,
+    SLIDER: 3,
+    FREETEXT: 4
 }
 

@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Redirect } from 'react-router';
 import Button from '@material-ui/core/Button';
 import Question from './question';
-import NotFound from './notFound'
 import type {QuestionModel} from '../models/questionModel';
 
 type State = {
@@ -32,7 +31,7 @@ class Quiz extends Component<Props, State> {
     componentDidMount() {
         this.props.getQuestions().then((response) => {
             this.setState({
-                error: response.error != undefined
+                error: response.error !== undefined
             })
           })
     }
@@ -46,12 +45,6 @@ class Quiz extends Component<Props, State> {
     renderError () {
         return (
             <Redirect to="/notFound" /> 
-        )
-    }
-
-    renderError() {
-        return (
-           <NotFound/>
         )
     }
 
