@@ -1,9 +1,9 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import type {QuestionTypeModel} from '../models/questionTypeModel';
-import type {AnswerAlternativeModel} from '../models/answerAlternativeModel';
-import {QuestionTypeEnum} from '../constants/questionTypeEnum';
+import type {QuestionTypeModel} from '../../models/questionTypeModel';
+import type {AnswerAlternativeModel} from '../../models/answerAlternativeModel';
+import {QuestionTypeEnum} from '../../constants/questionTypeEnum';
 import SliderAlternative from './sliderAlternative';
 import RadioAlternative from './radioAlternative';
 import FreeTextAlternative from './freeTextAlternative';

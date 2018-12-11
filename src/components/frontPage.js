@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PresentUser from './presentUser';
-import QuestionSets from './questionSets';
+import QuestionSets from './questionnaires/questionSets';
 import Grid from '@material-ui/core/Grid';
 
 type Props = {
@@ -14,7 +14,7 @@ class FrontPage extends Component<Props> {
         return (
             <div>
                 <Grid container direction="row-reverse">
-                    <Grid item xs={2} className="App-user-header">
+                    <Grid item xs={12} className="App-user-header">
                         <PresentUser/>
                     </Grid>
                 </Grid>

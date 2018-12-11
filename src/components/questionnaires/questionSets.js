@@ -1,11 +1,11 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getQuestionSets} from '../actions/getQuestionSets';
+import {getQuestionSets} from '../../actions/getQuestionSets';
 import { Link } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import '../styles/quiz.css';
+import '../../styles/quiz.css';
 
 type Props = {
     getQuestionSets(): void;

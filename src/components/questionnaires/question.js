@@ -1,8 +1,8 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import QuestionModel from '../models/questionModel';
-import AnswerAlternatives from './answerAlternatives';
+import QuestionModel from '../../models/questionModel';
+import AnswerAlternatives from '../answerAlternatives/answerAlternatives';
 
 type Props = {
     question: QuestionModel
@@ -17,7 +17,6 @@ class Question extends Component<Props> {
                 <div className="questionTitle">{question.QuestionText}</div>
                 <AnswerAlternatives questionType={question.QuestionType} answerAlternatives={question.AnswerAlternatives}/>
             </div>
-            
         );
     }
 }

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import {Provider} from 'react-redux';
 import './styles/App.css';
-import Questions from './components/questions';
+import Questions from './components/questionnaires/questions';
 import FrontPage from './components/frontPage';
 import NotFound from './components/notFound';
 import store from './store/store';

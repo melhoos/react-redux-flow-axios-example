@@ -27,18 +27,13 @@ class SliderAlternative extends Component<Props, State> {
     renderSlider () {
         const {answerAlternatives} = this.props;
         const {sliderValue} = this.state;
-        let rangeHigh, rangeLow
-        let showSlider = false
-        answerAlternatives.map( (answerAlternative: AnswerAlternativeModel) => {
-            if (answerAlternative.AnswerRange) {
-                rangeHigh = answerAlternative.AnswerRange.AnswerRangeHigh; // FIX THIS IN BACKEND
-                rangeLow = answerAlternative.AnswerRange.AnswerRangeLow; // FIX THIS IN BACKEND
-                showSlider = true;
-            } 
-        })
+        const answerRangeExists = answerAlternatives.length > 0 && answerAlternatives[0].AnswerRange;
+        const rangeHigh = answerRangeExists ? answerAlternatives[0].AnswerRange.AnswerRangeHigh : undefined;
+        const rangeLow = answerRangeExists ?  answerAlternatives[0].AnswerRange.AnswerRangeLow : undefined;
+
         return (
             <div>
-                { showSlider ? (
+                { answerRangeExists ? (
                         <div className="sliderContent">
                             <div className="sliderValues">
                                 <span className="sliderLow"> {rangeLow} </span>

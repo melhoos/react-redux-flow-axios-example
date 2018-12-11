@@ -1,13 +1,14 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getQuestionsByQuestionSetId} from '../actions/getQuestions';
-import {FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {getQuestionsByQuestionSetId} from '../../actions/getQuestions';
+import type {QuestionModel} from '../../models/questionModel';
 import {Redirect } from 'react-router';
+import PresentUser from '../presentUser';
 import Button from '@material-ui/core/Button';
 import Question from './question';
 import Grid from '@material-ui/core/Grid';
-import type {QuestionModel} from '../models/questionModel';
+import {FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type State = {
     curretQuestionIndex: number,
@@ -40,9 +41,7 @@ class Questions extends Component<Props, State> {
 
     renderLoading () {
         return (
-            <Grid item xs={12}>
-                <FontAwesomeIcon className="quiz-loader" icon="spinner" />
-            </Grid>
+            <FontAwesomeIcon className="quiz-loader" icon="spinner" />
         )
     }
 
@@ -85,20 +84,24 @@ class Questions extends Component<Props, State> {
                         return (
                             <div key={index} >
                                 <Question question={question}/>
-                                <span className="navButton">
-                                    <Button 
-                                        size="large" 
-                                        variant="contained" 
-                                        color="secondary" 
-                                        onClick={() => this.onClickBackButton()}
-                                        > Back 
-                                    </Button>
-                                </span>
-                                <span className="navButton">
-                                    <Button size="large" variant="contained" color="primary" onClick={() => this.onClickNextButton()}> Next </Button>
-                                </span>
+                                <div>
+                                    <span className="navButton">
+                                        <Button 
+                                            size="large" 
+                                            variant="contained" 
+                                            color="secondary" 
+                                            onClick={() => this.onClickBackButton()}
+                                            > Back 
+                                        </Button>
+                                    </span>
+                                    <span className="navButton">
+                                        <Button size="large" variant="contained" color="primary" onClick={() => this.onClickNextButton()}> Next </Button>
+                                    </span>
+                                </div>
                             </div>
                         ) 
+                    } else {
+                        return (<div></div>)
                     }
                 })}
             </Grid>
@@ -109,21 +112,21 @@ class Questions extends Component<Props, State> {
         const {loading} = this.props;
         const {error} = this.state;
         return (
-            <Grid container className="App-content">
-                <Grid item xs={1}></Grid>
-                <Grid item xs={10}>
-                    <Grid container>
-                        { loading ? 
-                            this.renderLoading() :
-                            error ? 
-                            this.renderError() :
-                            this.renderQuestion() 
-                        }
-                    </Grid>                
+            <div>
+                <Grid container direction="row-reverse">
+                    <Grid item xs={12} className="App-user-header">
+                        <PresentUser/>
+                    </Grid>
                 </Grid>
-                <Grid item xs={1}></Grid>
-            </Grid>
-
+                <Grid container className="App-content">
+                    { loading ? 
+                        this.renderLoading() :
+                        error ? 
+                        this.renderError() :
+                        this.renderQuestion() 
+                    }              
+                </Grid>
+            </div>
 
         );
     }
