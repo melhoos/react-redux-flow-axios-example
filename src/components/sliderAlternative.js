@@ -30,9 +30,9 @@ class SliderAlternative extends Component<Props, State> {
         let rangeHigh, rangeLow
         let showSlider = false
         answerAlternatives.map( (answerAlternative: AnswerAlternativeModel) => {
-            if (answerAlternative.answerRange) {
-                rangeHigh = answerAlternative.answerRange.fields[0].answerRangeHigh; // FIX THIS IN BACKEND
-                rangeLow = answerAlternative.answerRange.fields[0].answerRangeLow; // FIX THIS IN BACKEND
+            if (answerAlternative.AnswerRange) {
+                rangeHigh = answerAlternative.AnswerRange.AnswerRangeHigh; // FIX THIS IN BACKEND
+                rangeLow = answerAlternative.AnswerRange.AnswerRangeLow; // FIX THIS IN BACKEND
                 showSlider = true;
             } 
         })

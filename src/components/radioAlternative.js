@@ -43,7 +43,7 @@ class RadioAlternative extends Component<Props, State> {
                             <FormControlLabel 
                                 key={index} 
                                 value={index.toString()}
-                                label={answerAlternative.name}
+                                label={answerAlternative.Name}
                                 control={ 
                                     <Radio color="primary" />
                                 }

@@ -1,11 +1,9 @@
 //@ flow
 import React, { Component } from 'react';
 import {Provider} from 'react-redux';
-//import logo from './assets/logo.svg';
 import './styles/App.css';
-//import FrontPage from './components/frontPage';
-import Quiz from './components/quiz';
-import StartQuiz from './components/startQuiz';
+import Questions from './components/questions';
+import FrontPage from './components/frontPage';
 import NotFound from './components/notFound';
 import store from './store/store';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -15,7 +13,6 @@ import { faUserPlus, faPlus, faMinus, faTrashAlt, faSpinner, faSadTear, faHandPo
 library.add(faUserPlus, faPlus, faMinus, faTrashAlt, faSpinner, faSadTear, faHandPointLeft)
 
 class App extends Component {
-  // <img src={logo} className="App-logo" alt="logo" />
   render() {
     return (
       <Provider store={store}>
@@ -23,8 +20,8 @@ class App extends Component {
           <header className="App-header">
             <Router>
               <div>
-                <Route path="/" exact component={StartQuiz}/>
-                <Route path="/quizzles" component={Quiz}/>
+                <Route path="/" exact component={FrontPage}/>
+                <Route path="/quizzles/:qsId" component={Questions}/>
                 <Route path="/notFound" component={NotFound}/>
               </div>
             </Router>

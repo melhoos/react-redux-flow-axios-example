@@ -1,10 +1,10 @@
 // @flow
 export type AnswerAlternativeModel = {
-    id: number,
-    answerRage: obj,
-    createdAt: obj,
-    createdBy: obj,
-    answerRange: obj,
-    freeTextAllowed: bool,
-    name: string
+    Id: number,
+    AnswerRage: obj,
+    CreatedAt: DateTime,
+    CreatedBy: string,
+    AnswerRange: obj,
+    FreeTextAllowed: bool,
+    Name: string
 };

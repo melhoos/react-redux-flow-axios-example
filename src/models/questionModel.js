@@ -3,11 +3,11 @@ import AnswerAlternativeModel from './answerAlternativeModel';
 import QuestionTypeModel from './questionTypeModel';
 
 export type QuestionModel = {
-    id: number,
-    questionText: string,
-    createdAt: obj,
-    createdBy: obj,
+    Id: number,
+    QuestionText: string,
+    CreatedAt: DateTime,
+    CreatedBy: string,
     questionType: QuestionTypeModel,
-    unit: [obj],
-    answerAlternatives: [AnswerAlternativeModel]
+    Unit: obj,
+    AnswerAlternatives: [AnswerAlternativeModel]
 };

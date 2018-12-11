@@ -18,7 +18,7 @@ class AnswerAlternatives extends Component<Props> {
 
     renderCorrectAnswerAlternative () {
         const {questionType, answerAlternatives} = this.props;
-        switch(questionType.id) {
+        switch(questionType.Id) {
             case QuestionTypeEnum.RADIO:
                 return (<RadioAlternative answerAlternatives={answerAlternatives}/> )
             case QuestionTypeEnum.CHECKBOX:

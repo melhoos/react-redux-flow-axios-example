@@ -22,7 +22,7 @@ class CheckboxAlternative extends Component<Props> {
                         answerAlternatives.map( (answerAlternative: AnswerAlternativeModel, index: number) => (
                             <FormControlLabel 
                                 key={index} 
-                                label={answerAlternative.name}
+                                label={answerAlternative.Name}
                                 control={ 
                                     <Checkbox color="primary" />
                                 }

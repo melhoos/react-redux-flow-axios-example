@@ -1,12 +1,12 @@
 //@ flow
-import {GET_QUESTIONS} from '../constants/actionTypes';
+import {GET_QUESTIONSETS} from '../constants/actionTypes';
 
-export function getQuestionsByQuestionSetId(id: number) {
+export function getQuestionSets() {
     return {
-        type: GET_QUESTIONS,
+        type: GET_QUESTIONSETS,
         payload: {
             request: {
-                url: '/questionSetById/'+id,
+                url: '/questionSetsSimple',
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json'

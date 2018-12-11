@@ -14,8 +14,8 @@ class FreeTextAlternative extends Component<Props> {
         const {answerAlternatives} = this.props;
         let labelName
         answerAlternatives.map( (answerAlternative: AnswerAlternativeModel) => {
-            if (answerAlternative.name) {
-                labelName = answerAlternative.name
+            if (answerAlternative.Name) {
+                labelName = answerAlternative.Name
             } 
         })
         return (

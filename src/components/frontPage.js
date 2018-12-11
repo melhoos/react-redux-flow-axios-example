@@ -1,9 +1,9 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Counter from './counter';
-import AddName from './addName';
-import ListNames from './listNames';
+import PresentUser from './presentUser';
+import QuestionSets from './questionSets';
+import Grid from '@material-ui/core/Grid';
 
 type Props = {
 };
@@ -13,9 +13,16 @@ class FrontPage extends Component<Props> {
     render() {
         return (
             <div>
-                <Counter/>
-                <AddName/>
-                <ListNames/>
+                <Grid container direction="row-reverse">
+                    <Grid item xs={2} className="App-user-header">
+                        <PresentUser/>
+                    </Grid>
+                </Grid>
+                <Grid container>
+                    <Grid item xs={12} className="App-content">
+                        <QuestionSets/>
+                    </Grid>
+                </Grid>
             </div>
         );
     }

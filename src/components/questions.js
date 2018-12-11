@@ -1,11 +1,12 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getQuestions} from '../actions/getQuestions';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Redirect } from 'react-router';
+import {getQuestionsByQuestionSetId} from '../actions/getQuestions';
+import {FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {Redirect } from 'react-router';
 import Button from '@material-ui/core/Button';
 import Question from './question';
+import Grid from '@material-ui/core/Grid';
 import type {QuestionModel} from '../models/questionModel';
 
 type State = {
@@ -14,12 +15,12 @@ type State = {
 }
 
 type Props = {
-    getQuestions(): void,
+    getQuestionsByQuestionSetId(id: number): void,
     questions: [QuestionModel],
     loading: bool
 };
 
-class Quiz extends Component<Props, State> {
+class Questions extends Component<Props, State> {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,7 +30,8 @@ class Quiz extends Component<Props, State> {
     }
 
     componentDidMount() {
-        this.props.getQuestions().then((response) => {
+        let id = this.props.match.params.qsId
+        this.props.getQuestionsByQuestionSetId(id).then((response) => {
             this.setState({
                 error: response.error !== undefined
             })
@@ -38,7 +40,9 @@ class Quiz extends Component<Props, State> {
 
     renderLoading () {
         return (
-            <FontAwesomeIcon className="quiz-loader" icon="spinner" />
+            <Grid item xs={12}>
+                <FontAwesomeIcon className="quiz-loader" icon="spinner" />
+            </Grid>
         )
     }
 
@@ -75,7 +79,7 @@ class Quiz extends Component<Props, State> {
         const {questions} = this.props;
         const {curretQuestionIndex} = this.state;
         return (
-            <div>
+            <Grid item xs={12}>
                 { questions.map( (question: QuestionModel, index: number) => {
                     if (index === curretQuestionIndex) {
                         return (
@@ -97,7 +101,7 @@ class Quiz extends Component<Props, State> {
                         ) 
                     }
                 })}
-            </div>
+            </Grid>
         )
     }
 
@@ -105,14 +109,22 @@ class Quiz extends Component<Props, State> {
         const {loading} = this.props;
         const {error} = this.state;
         return (
-            <div>
-                { loading ? 
-                    this.renderLoading() :
-                    error ? 
-                    this.renderError() :
-                    this.renderQuestion() 
-                }
-            </div>
+            <Grid container className="App-content">
+                <Grid item xs={1}></Grid>
+                <Grid item xs={10}>
+                    <Grid container>
+                        { loading ? 
+                            this.renderLoading() :
+                            error ? 
+                            this.renderError() :
+                            this.renderQuestion() 
+                        }
+                    </Grid>                
+                </Grid>
+                <Grid item xs={1}></Grid>
+            </Grid>
+
+
         );
     }
 }
@@ -125,7 +137,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = { 
-    getQuestions
+    getQuestionsByQuestionSetId
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Quiz);
+export default connect(mapStateToProps, mapDispatchToProps)(Questions);

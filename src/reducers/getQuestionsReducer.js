@@ -11,7 +11,7 @@ export function getQuestionsReducer( state = initialState, action) {
         case GET_QUESTIONS: 
             return {...state, loading: true}
         case GET_QUESTIONS_SUCCESS: 
-            return {...state, loading: false, data: action.payload.data}
+            return {...state, loading: false, data: action.payload.data.Questions}
         case GET_QUESTIONS_ERROR: 
             console.log("GET_QUESTIONS_ERROR");
             return {...state, loading: false, error: "error while getting question"}

@@ -1,16 +1,12 @@
 //@ flow
 import {combineReducers} from 'redux';
-import {countReducer} from './countReducer.js';
-import {addNameReducer} from './addNameReducer';
-import {getNamesReducer} from './getNamesReducer';
-import {removeNameReducer} from './removeNameReducer';
 import {getQuestionsReducer} from './getQuestionsReducer';
+import {getUserReducer} from './getUserReducer';
+import {getQuestionSetsReducer} from './getQuestionSetsReducer';
 
-const rootReducer = combineReducers({ 
-    countReducer,
-    addNameReducer,
-    getNamesReducer,
-    removeNameReducer,
+const rootReducer = combineReducers({
+    getUserReducer, 
+    getQuestionSetsReducer,
     getQuestionsReducer
 })
 

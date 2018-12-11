@@ -14,8 +14,8 @@ class Question extends Component<Props> {
         const {question} = this.props;
         return (
             <div className="questionComp">
-                <div className="questionTitle">{question.questionText}</div>
-                <AnswerAlternatives questionType={question.questionType} answerAlternatives={question.answerAlternatives}/>
+                <div className="questionTitle">{question.QuestionText}</div>
+                <AnswerAlternatives questionType={question.QuestionType} answerAlternatives={question.AnswerAlternatives}/>
             </div>
             
         );
