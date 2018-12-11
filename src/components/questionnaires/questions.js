@@ -74,6 +74,34 @@ class Questions extends Component<Props, State> {
         }
     }
 
+    renderButtons () {
+        const {questions} = this.props;
+        const {curretQuestionIndex} = this.state;
+        const showNextBtn = questions.length > curretQuestionIndex+1;
+        const showBackBtn = curretQuestionIndex != 0;
+        return (
+            <div>
+                {showBackBtn ? (
+                    <span className="navButton">
+                        <Button 
+                            size="large" 
+                            variant="contained" 
+                            color="secondary" 
+                            onClick={() => this.onClickBackButton()}
+                            > Back 
+                        </Button>
+                    </span>
+                ) : (<span/>)}
+                { showNextBtn ? (
+                    <span className="navButton">
+                        <Button size="large" variant="contained" color="primary" onClick={() => this.onClickNextButton()}> Next </Button>
+                    </span>
+                    ) : (<span/>)
+                }
+            </div>
+        )
+    }
+
     renderQuestion () {
         const {questions} = this.props;
         const {curretQuestionIndex} = this.state;
@@ -86,25 +114,12 @@ class Questions extends Component<Props, State> {
                             Spørsmål {curretQuestionIndex+1} av {questions.length}
                         </div>
                         <Question question={currentQuestion}/>
-                        <div>
-                            <span className="navButton">
-                                <Button 
-                                    size="large" 
-                                    variant="contained" 
-                                    color="secondary" 
-                                    onClick={() => this.onClickBackButton()}
-                                    > Back 
-                                </Button>
-                            </span>
-                            <span className="navButton">
-                                <Button size="large" variant="contained" color="primary" onClick={() => this.onClickNextButton()}> Next </Button>
-                            </span>
-                        </div>
+                        {this.renderButtons()}
                     </div>
                 </Grid>
             )
         } else {
-            return (<div></div>)
+            return (<div/>)
         }
     }
 
