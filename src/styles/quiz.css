@@ -17,7 +17,8 @@
 }
 
 .smallErrorText {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  font-size: 1em;
 }
 
 .errorSadFaceIcon {
@@ -26,7 +27,7 @@
 
 .goBackLink {
   text-decoration: none;
-  font-size: 0.75em;
+  font-size: 0.5em;
   color: black
 }
 

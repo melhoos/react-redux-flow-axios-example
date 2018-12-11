@@ -12,14 +12,13 @@ class NotFound extends Component<Props> {
     render() {
         return (
             <Grid container className="App-content">
-                <Grid item xs={12} className="bigErrorText">
-                    <FontAwesomeIcon icon="sad-tear" className="errorSadFaceIcon" /> Error
-                </Grid>
-                
-                <Grid item xs={12} className="smallErrorText">
-                    Could not connect to server.
-                </Grid>
                 <Grid item xs={12}>
+                    <div className="bigErrorText"> 
+                        <FontAwesomeIcon icon="sad-tear" className="errorSadFaceIcon" /> Error 
+                    </div>
+                    <div className="smallErrorText">
+                        Could not connect to server.
+                    </div>
                     <Link to="/" className="goBackLink">
                         <FontAwesomeIcon icon="hand-point-left" className="goBackHandIcon" /> Go back
                     </Link>
