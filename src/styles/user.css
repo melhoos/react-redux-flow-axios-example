@@ -1,3 +1,10 @@
 .presentUser {
     float: right;
+    text-align: right;
+}
+
+.logout {
+    text-decoration: underline;
+    font-size: 0.75em;
+    cursor: pointer;
 }

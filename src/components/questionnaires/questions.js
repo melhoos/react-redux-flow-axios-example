@@ -70,42 +70,42 @@ class Questions extends Component<Props, State> {
                 curretQuestionIndex: prevState.curretQuestionIndex - 1
             })); 
         } else {
-            // TODO
+            //TODO
         }
     }
 
     renderQuestion () {
         const {questions} = this.props;
         const {curretQuestionIndex} = this.state;
-        return (
-            <Grid item xs={12}>
-                { questions.map( (question: QuestionModel, index: number) => {
-                    if (index === curretQuestionIndex) {
-                        return (
-                            <div key={index} >
-                                <Question question={question}/>
-                                <div>
-                                    <span className="navButton">
-                                        <Button 
-                                            size="large" 
-                                            variant="contained" 
-                                            color="secondary" 
-                                            onClick={() => this.onClickBackButton()}
-                                            > Back 
-                                        </Button>
-                                    </span>
-                                    <span className="navButton">
-                                        <Button size="large" variant="contained" color="primary" onClick={() => this.onClickNextButton()}> Next </Button>
-                                    </span>
-                                </div>
-                            </div>
-                        ) 
-                    } else {
-                        return (<div></div>)
-                    }
-                })}
-            </Grid>
-        )
+        if (questions.length > 0 ) {
+            let currentQuestion: QuestionModel = questions[curretQuestionIndex];
+            return (
+                <Grid item xs={12}>
+                    <div key={curretQuestionIndex}>
+                        <div>
+                            Spørsmål {curretQuestionIndex+1} av {questions.length}
+                        </div>
+                        <Question question={currentQuestion}/>
+                        <div>
+                            <span className="navButton">
+                                <Button 
+                                    size="large" 
+                                    variant="contained" 
+                                    color="secondary" 
+                                    onClick={() => this.onClickBackButton()}
+                                    > Back 
+                                </Button>
+                            </span>
+                            <span className="navButton">
+                                <Button size="large" variant="contained" color="primary" onClick={() => this.onClickNextButton()}> Next </Button>
+                            </span>
+                        </div>
+                    </div>
+                </Grid>
+            )
+        } else {
+            return (<div></div>)
+        }
     }
 
     render() {

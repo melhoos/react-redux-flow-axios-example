@@ -25,7 +25,13 @@ class PresentUser extends Component<Props, State> {
         const {user} = this.props;
         return (
             <div className="presentUser">
-                {'Hei ' + user.Name}
+                <div>
+                    {'Hei ' + user.Name}
+                </div>
+                
+                <div className="logout">
+                    Logg ut
+                </div>
             </div>
         );
     }
