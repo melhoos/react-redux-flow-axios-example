@@ -2,8 +2,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {addName} from '../actions/addName';
-import {getNames} from '../actions/getNames';
+import {addName} from '../actions/xaddName';
+import {getNames} from '../actions/xgetNames';
+import Grid from '@material-ui/core/Grid';
 import '../styles/listNames.css';
 
 
@@ -38,12 +39,14 @@ class AddName extends Component<Props, State> {
     render() {
         const {name} = this.state;
         return (
-            <div className="addName">
-                <input className="typeNameInput" type="text" placeholder="Type a name" value={name} onChange={(event) => this._onChangeTextInput(event)}></input>
-                <button className="addNameButton" onClick={() => this._sendPostRequst(name)}> 
-                    <FontAwesomeIcon icon="user-plus" />
-                </button>
-            </div>
+            <Grid container className="addName">
+                <Grid item>
+                    <input className="typeNameInput" type="text" placeholder="Type a name" value={name} onChange={(event) => this._onChangeTextInput(event)}></input>
+                    <button className="addNameButton" onClick={() => this._sendPostRequst(name)}> 
+                        <FontAwesomeIcon icon="user-plus" />
+                    </button>
+                </Grid>
+            </Grid>
         );
     }
 }

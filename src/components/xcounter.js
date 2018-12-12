@@ -1,9 +1,11 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {incrementCounter} from '../actions/incrementCounter';
-import {deincrementCounter} from '../actions/deincrementCounter';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {incrementCounter} from '../actions/xincrementCounter';
+import {deincrementCounter} from '../actions/xdeincrementCounter';
+import Grid from '@material-ui/core/Grid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import '../styles/counter.css';
 
 type Props = {
@@ -23,11 +25,13 @@ class Counter extends Component<Props> {
     render() {
         const {counter} = this.props;
         return (
-        <div className="counter">
-            <div className="counter-value">Count: {counter}</div>
-            <button className="counter-button minus" onClick={() => this._pressDeincrementCounter()}>  <FontAwesomeIcon icon="minus" /> </button>
-            <button className="counter-button plus" onClick={() => this._pressIncrementCounter()}> <FontAwesomeIcon icon="plus" /> </button>
-        </div>
+        <Grid container className="counter">
+            <Grid item>
+                <div className="counter-value">Count: {counter}</div>
+                <button className="counter-button minus" onClick={() => this._pressDeincrementCounter()}>  <FontAwesomeIcon icon="minus" /> </button>
+                <button className="counter-button plus" onClick={() => this._pressIncrementCounter()}> <FontAwesomeIcon icon="plus" /> </button>
+            </Grid>
+        </Grid>
         );
     }
 }

@@ -1,10 +1,11 @@
 // @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getNames} from '../actions/getNames';
+import {getNames} from '../actions/xgetNames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../styles/listNames.css';
-import {removeName} from '../actions/removeName';
+import Grid from '@material-ui/core/Grid';
+import {removeName} from '../actions/xremoveName';
 
 type Props = {
     getNames(): void,
@@ -27,15 +28,19 @@ class ListNames extends Component<Props> {
     render() {
         const {names} = this.props;
         return (
-            <ul className="listNamesScroll">
-                {names.map( (name: any) => (
-                              <li key={name.id} className="nameListItem">
-                                  {name.name}
-                                  <FontAwesomeIcon icon="trash-alt" className="trashIcon" onClick={() => this._onTrashClick(name.id)} />
-                              </li>      
-                    )
-                )}
-            </ul>
+            <Grid container>
+                <Grid item>
+                    <ul className="listNamesScroll">
+                        {names.map( (name: any) => (
+                                    <li key={name.id} className="nameListItem">
+                                        {name.Name}
+                                        <FontAwesomeIcon icon="trash-alt" className="trashIcon" onClick={() => this._onTrashClick(name.id)} />
+                                    </li>      
+                            )
+                        )}
+                    </ul>
+                </Grid>
+            </Grid>
         );
     }
 }

@@ -1,15 +1,15 @@
 //@ flow
 import {combineReducers} from 'redux';
-import {getQuestionsReducer} from './getQuestionsReducer';
-import {getUserReducer} from './getUserReducer';
-import {getQuestionSetsReducer} from './getQuestionSetsReducer';
-import {addUserAnswerReducer} from './addUserAnswerReducer';
+import {removeNameReducer} from './xremoveNameReducer';
+import {getNamesReducer} from './xgetNamesReducer';
+import {countReducer} from './xcountReducer';
+import {addNameReducer} from './xaddNameReducer';
 
 const rootReducer = combineReducers({
-    getUserReducer, 
-    getQuestionSetsReducer,
-    getQuestionsReducer,
-    addUserAnswerReducer
+    removeNameReducer,
+    getNamesReducer,
+    countReducer,
+    addNameReducer
 })
 
 export default rootReducer;
