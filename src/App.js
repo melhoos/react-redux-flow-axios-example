@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import './styles/App.css';
 import Questions from './components/questionnaires/questions';
 import FrontPage from './components/frontPage';
+import Finished from './components/questionnaires/finished';
 import NotFound from './components/notFound';
 import store from './store/store';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -21,7 +22,8 @@ class App extends Component {
             <Router>
               <div>
                 <Route path="/" exact component={FrontPage}/>
-                <Route path="/quizzles/:qsId" component={Questions}/>
+                <Route path="/quizzles/:qsId" exact component={Questions}/>
+                <Route path="/quizzles/:qsId/finished" component={Finished} />
                 <Route path="/notFound" component={NotFound}/>
               </div>
             </Router>

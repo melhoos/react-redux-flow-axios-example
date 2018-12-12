@@ -1,9 +1,9 @@
-.questionSetButton {
-  background-color: red;
+.questionSetLink {
+  text-decoration: none;
 }
 
-.startLink {
-    text-decoration: none;
+.questionNumberOfTotalNumber {
+  font-size: 0.75em;
 }
 
 .navButton {

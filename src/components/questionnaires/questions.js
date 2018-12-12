@@ -2,12 +2,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getQuestionsByQuestionSetId} from '../../actions/getQuestions';
+import {addUserAnswer} from '../../actions/addUserAnswer';
 import type {QuestionModel} from '../../models/questionModel';
 import {Redirect } from 'react-router';
 import PresentUser from '../presentUser';
 import Button from '@material-ui/core/Button';
 import Question from './question';
 import Grid from '@material-ui/core/Grid';
+import { Link } from "react-router-dom";
 import {FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type State = {
@@ -17,6 +19,7 @@ type State = {
 
 type Props = {
     getQuestionsByQuestionSetId(id: number): void,
+    addUserAnswer(userAnswer: obj): void,
     questions: [QuestionModel],
     loading: bool
 };
@@ -51,6 +54,30 @@ class Questions extends Component<Props, State> {
         )
     }
 
+    sendUserAnswer() { // MOVE THIS TO QUESTION
+        const {curretQuestionIndex} = this.state;
+        const {questions} = this.props;
+        const currentQuestion = questions[curretQuestionIndex]
+        console.log("send!!", questions)
+
+        const questionSetId = this.props.match.params.qsId;
+        const questionId = currentQuestion.Id;
+
+
+        /* data = 
+{
+    "questionSetId": 1,
+    "questionId": 3,
+    "userAnswerValues": [
+        {
+            "value": 3,
+            "freeText": null,
+            "answerAlternativeId": 1
+        }
+    ]
+} */
+    }
+
     onClickNextButton () {
         const {questions} = this.props;
         const {curretQuestionIndex} = this.state;
@@ -58,9 +85,7 @@ class Questions extends Component<Props, State> {
             this.setState((prevState, props) => ({
                 curretQuestionIndex: prevState.curretQuestionIndex + 1
             })); 
-        } else {
-            // TODO
-        }
+        } 
     }
 
     onClickBackButton () {
@@ -69,9 +94,7 @@ class Questions extends Component<Props, State> {
             this.setState((prevState, props) => ({
                 curretQuestionIndex: prevState.curretQuestionIndex - 1
             })); 
-        } else {
-            //TODO
-        }
+        } 
     }
 
     renderButtons () {
@@ -79,6 +102,7 @@ class Questions extends Component<Props, State> {
         const {curretQuestionIndex} = this.state;
         const showNextBtn = questions.length > curretQuestionIndex+1;
         const showBackBtn = curretQuestionIndex != 0;
+        const id = this.props.match.params.qsId
         return (
             <div>
                 {showBackBtn ? (
@@ -88,15 +112,21 @@ class Questions extends Component<Props, State> {
                             variant="contained" 
                             color="secondary" 
                             onClick={() => this.onClickBackButton()}
-                            > Back 
+                            > Tilbake 
                         </Button>
                     </span>
                 ) : (<span/>)}
                 { showNextBtn ? (
                     <span className="navButton">
-                        <Button size="large" variant="contained" color="primary" onClick={() => this.onClickNextButton()}> Next </Button>
+                        <Button size="large" variant="contained" color="primary" onClick={() =>{this.onClickNextButton()}}> Neste </Button>
                     </span>
-                    ) : (<span/>)
+                    ) : (
+                        <span className="navButton">
+                         <Link to={"/quizzles/"+id+"/finished"}>
+                            <Button size="large" variant="contained" color="primary" onClick={() => this.sendUserAnswer()}> Send inn </Button>
+                        </Link>
+                        </span>
+                    )
                 }
             </div>
         )
@@ -110,7 +140,7 @@ class Questions extends Component<Props, State> {
             return (
                 <Grid item xs={12}>
                     <div key={curretQuestionIndex}>
-                        <div>
+                        <div className="questionNumberOfTotalNumber">
                             Spørsmål {curretQuestionIndex+1} av {questions.length}
                         </div>
                         <Question question={currentQuestion}/>
@@ -155,7 +185,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = { 
-    getQuestionsByQuestionSetId
+    getQuestionsByQuestionSetId,
+    addUserAnswer
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Questions);

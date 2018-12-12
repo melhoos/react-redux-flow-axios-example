@@ -21,9 +21,9 @@ class QuestionSets extends Component<Props> {
     renderQuestionSets() {
         const {questionSets} = this.props;
         return questionSets.map( (questionSet: obj, index: Number) => {
-            return index < 3 ? (
+            return index < 6 ? (
                 <Grid item xs={4} key={index} zeroMinWidth>
-                    <Link to={"/quizzles/"+questionSet.Id} className="startLink">
+                    <Link to={"/quizzles/"+questionSet.Id} className="questionSetLink">
                         <Button size="large" variant="outlined"> {questionSet.Name} </Button>
                     </Link>
                 </Grid>

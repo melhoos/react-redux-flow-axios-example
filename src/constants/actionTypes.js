@@ -28,3 +28,8 @@ export const GET_QUESTIONSETS_ERROR = 'ekorn/questionsets/LOAD_FAIL';
 export const GET_QUESTIONS = 'ekorn/questions/LOAD';
 export const GET_QUESTIONS_SUCCESS = 'ekorn/questions/LOAD_SUCCESS';
 export const GET_QUESTIONS_ERROR = 'ekorn/questions/LOAD_FAIL';
+
+// ADD USER ANSWER
+export const SEND_USERANSWER = 'ekorn/useranswer/LOAD';
+export const SEND_USERANSWER_SUCCESS = 'ekorn/useranswer/LOAD_SUCCESS';
+export const SEND_USERANSWER_ERROR = 'ekorn/useranswer/LOAD_FAIL';
