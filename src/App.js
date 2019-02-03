@@ -2,9 +2,7 @@
 import React, { Component } from 'react';
 import {Provider} from 'react-redux';
 import './styles/App.css';
-import Questions from './components/questionnaires/questions';
 import FrontPage from './components/frontPage';
-import Finished from './components/questionnaires/finished';
 import NotFound from './components/notFound';
 import store from './store/store';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -18,16 +16,13 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
-          <header className="App-header">
-            <Router>
-              <div>
-                <Route path="/" exact component={FrontPage}/>
-                <Route path="/quizzles/:qsId" exact component={Questions}/>
-                <Route path="/quizzles/:qsId/finished" component={Finished} />
-                <Route path="/notFound" component={NotFound}/>
-              </div>
-            </Router>
-          </header>
+          <header className="App-header"></header>
+          <Router>
+            <div>
+              <Route path="/" exact component={FrontPage}/>
+              <Route path="/notFound" component={NotFound}/>
+            </div>
+          </Router>
         </div>
       </Provider>
     );

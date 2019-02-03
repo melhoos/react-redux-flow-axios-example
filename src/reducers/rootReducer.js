@@ -1,9 +1,9 @@
 //@ flow
 import {combineReducers} from 'redux';
-import {removeNameReducer} from './xremoveNameReducer';
-import {getNamesReducer} from './xgetNamesReducer';
-import {countReducer} from './xcountReducer';
-import {addNameReducer} from './xaddNameReducer';
+import {removeNameReducer} from './removeNameReducer';
+import {getNamesReducer} from './getNamesReducer';
+import {countReducer} from './countReducer';
+import {addNameReducer} from './addNameReducer';
 
 const rootReducer = combineReducers({
     removeNameReducer,
