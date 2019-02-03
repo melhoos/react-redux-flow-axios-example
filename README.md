@@ -42,3 +42,16 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+---
+
+### `flow init`
+Run this command at the top level of your project to create one, empty file called `.flowconfig.` At its most basic level, `.flowconfig` tells the Flow background process the root of where to begin checking Flow code for errors.
+
+### `flow status` or just `flow`
+The core benefit to Flow is its ability to quickly check your code for errors. Once you have enabled your project for Flow, you can start the process that allows Flow to check your code incrementally and with great speed.
+
+This command first starts a background process that will check all Flow files for errors. The background process continues running, monitoring changes to your code and checking those changes incrementally for errors.
+
+### `flow stop`
+To stop the background process
