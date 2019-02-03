@@ -45,6 +45,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ---
 
+## Flow
+
 ### `flow init`
 Run this command at the top level of your project to create one, empty file called `.flowconfig.` At its most basic level, `.flowconfig` tells the Flow background process the root of where to begin checking Flow code for errors.
 
