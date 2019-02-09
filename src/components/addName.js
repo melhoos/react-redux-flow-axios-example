@@ -35,7 +35,7 @@ class AddName extends Component<Props, State> {
             name: event.target.value
         });
     }
-
+ 
     render() {
         const {name} = this.state;
         return (
